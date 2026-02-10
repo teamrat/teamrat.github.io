@@ -6,7 +6,7 @@
 <nav>
     <ul>
         {{- range .Site.Menus.main }}
-        <li><a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}{{ if $.HasMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a></li>
+        <li><a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}{{ if $.HasMenuCurrent "main" . }} class="active"{{ end }}>{{ if eq .Name "Home" }}<i class="fa-solid fa-house"></i>{{ else }}{{ .Name }}{{ end }}</a></li>
         {{- end }}
     </ul>
 </nav>
