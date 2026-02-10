@@ -1,0 +1,57 @@
+{{ define "main" }}
+
+<h1 class="section-title">{{ .Title }}</h1>
+
+{{ $currentDate := "" }}
+{{ range .Pages.ByDate.Reverse }}
+  {{ $postDate := .Date.Format "Monday, 2 January 2006" }}
+  {{ if ne $postDate $currentDate }}
+    {{ $currentDate = $postDate }}
+    <div class="date-heading">{{ $postDate }}</div>
+  {{ end }}
+
+  {{ if eq .Section "photos" }}
+    <div class="post">
+      <h2 class="post-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+      </h2>
+      <div class="post-body">
+        {{ with .Params.image }}
+          <img class="post-photo" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+        {{ end }}
+        {{ .Summary }}
+        {{ partial "tags.html" . }}
+      </div>
+    </div>
+
+  {{ else if eq .Section "notes" }}
+    <div class="post note">
+      <div class="post-body">
+        {{ .Content }}
+        <span class="note-timestamp"><a href="{{ .Permalink }}">{{ .Date.Format "3:04 PM" }}</a></span>
+        {{ partial "tags.html" . }}
+      </div>
+    </div>
+
+  {{ else }}
+    <div class="post">
+      <h2 class="post-title">
+        {{ if .Params.link }}
+          <a href="{{ .Params.link }}">{{ .Title }}</a>
+        {{ else }}
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+        <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+      </h2>
+      <div class="post-body">
+        {{ .Summary }}
+        {{ partial "tags.html" . }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
+
+{{ template "_internal/pagination.html" . }}
+
+{{ end }}

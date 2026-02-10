@@ -1,0 +1,65 @@
+baseURL = "https://teamrat.github.io/"  # Change to https://teamrat.net/ when domain is ready
+languageCode = "en-us"
+title = "ተeamrat"
+enableRobotsTXT = true
+enableEmoji = false
+
+[pagination]
+  pagerSize = 20
+
+[params]
+  subtitle = "Notes, photography, and observations"
+  author = "Teamrat Ghezzehei"
+  description = "Personal site of Teamrat Ghezzehei — soil physicist, photographer, observer of things."
+  email = "teamrat@ucmerced.edu"
+  github = "https://github.com/teamrat"
+
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
+
+[outputFormats]
+  [outputFormats.Viewer]
+    name = "viewer"
+    baseName = "view"
+    mediaType = "text/html"
+    isHTML = true
+    permalink = ":section/:filename/view/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    noClasses = false
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Notes"
+    url = "/notes/"
+    weight = 2
+  [[menu.main]]
+    name = "Photos"
+    url = "/photos/"
+    weight = 3
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 4
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 5
+  [[menu.main]]
+    name = "Colophon"
+    url = "/colophon/"
+    weight = 6

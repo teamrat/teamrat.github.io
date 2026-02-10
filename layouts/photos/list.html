@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<h1 class="section-title">{{ .Title }}</h1>
+
+{{/* ── PHOTO FILTERS ── */}}
+<div class="photo-filters">
+  <a href="/photos/" class="{{ if not .Params.tag }}active{{ end }}">All Photos</a>
+  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    {{ $tagSlug := $name }}
+    {{ $hasPhotos := false }}
+    {{ range $taxonomy.Pages }}
+      {{ if eq .Section "photos" }}
+        {{ $hasPhotos = true }}
+      {{ end }}
+    {{ end }}
+    {{ if $hasPhotos }}
+      <a href="/tags/{{ $tagSlug | urlize }}/" class="{{ if eq $.Params.tag $tagSlug }}active{{ end }}">{{ $tagSlug | humanize | title }}</a>
+    {{ end }}
+  {{ end }}
+</div>
+
+{{/* ── PHOTO GRID ── */}}
+<div class="photo-grid">
+  {{ $pages := .Pages }}
+  {{ if .Params.tag }}
+    {{ $pages = where .Site.RegularPages "Section" "photos" }}
+    {{ $pages = where $pages ".Params.tags" "intersect" (slice .Params.tag) }}
+  {{ end }}
+
+  {{ range $pages }}
+    <a href="{{ .Permalink }}" class="photo-grid-item">
+      {{ with .Params.image }}
+        <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+      {{ else }}
+        <img src="/images/placeholder.jpg" alt="{{ $.Title }}" loading="lazy">
+      {{ end }}
+      <div class="photo-grid-overlay">
+        <h3 class="photo-grid-title">{{ .Title }}</h3>
+        <div class="photo-grid-date">{{ .Date.Format "2 Jan 2006" }}</div>
+      </div>
+    </a>
+  {{ end }}
+</div>
+
+{{ end }}

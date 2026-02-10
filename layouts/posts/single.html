@@ -1,0 +1,19 @@
+{{ define "main" }}
+<article class="single-post">
+  <div class="date-heading">{{ .Date.Format "Monday, 2 January 2006" }}</div>
+
+  <h1 class="post-title">
+    {{ if .Params.link }}
+      <a href="{{ .Params.link }}">{{ .Title }}</a>
+      <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+    {{ else }}
+      {{ .Title }}
+    {{ end }}
+  </h1>
+
+  <div class="post-body">
+    {{ .Content }}
+    {{ partial "tags.html" . }}
+  </div>
+</article>
+{{ end }}

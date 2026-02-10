@@ -1,0 +1,86 @@
+{{ define "main" }}
+
+{{ $photoPages := where .Pages "Section" "photos" }}
+{{ $otherPages := where .Pages "Section" "!=" "photos" }}
+{{ $hasPhotos := gt (len $photoPages) 0 }}
+{{ $hasOthers := gt (len $otherPages) 0 }}
+
+<h1 class="section-title">{{ .Title }}</h1>
+
+{{ if $hasPhotos }}
+  {{/* ── PHOTO FILTERS ── */}}
+  <div class="photo-filters">
+    <a href="/photos/">All Photos</a>
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      {{ $tagSlug := $name }}
+      {{ $tagHasPhotos := false }}
+      {{ range $taxonomy.Pages }}
+        {{ if eq .Section "photos" }}
+          {{ $tagHasPhotos = true }}
+        {{ end }}
+      {{ end }}
+      {{ if $tagHasPhotos }}
+        <a href="/tags/{{ $tagSlug | urlize }}/" class="{{ if eq $.Title (printf "Tag: %s" ($tagSlug | humanize | title)) }}active{{ end }}{{ if eq $.Title ($tagSlug | humanize | title) }}active{{ end }}">{{ $tagSlug | humanize | title }}</a>
+      {{ end }}
+    {{ end }}
+  </div>
+
+  {{/* ── PHOTO GRID ── */}}
+  <div class="photo-grid">
+    {{ range $photoPages }}
+      <a href="{{ .Permalink }}" class="photo-grid-item">
+        {{ with .Params.image }}
+          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+        {{ else }}
+          <img src="/images/placeholder.jpg" alt="{{ $.Title }}" loading="lazy">
+        {{ end }}
+        <div class="photo-grid-overlay">
+          <h3 class="photo-grid-title">{{ .Title }}</h3>
+          <div class="photo-grid-date">{{ .Date.Format "2 Jan 2006" }}</div>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
+
+{{ if and $hasPhotos $hasOthers }}
+  <div style="margin: 60px 0;"><hr style="border: none; height: 1px; background: var(--border);"></div>
+{{ end }}
+
+{{ if $hasOthers }}
+  {{/* ── OTHER CONTENT (posts, notes) in timeline format ── */}}
+  {{ $currentDate := "" }}
+  {{ range $otherPages }}
+    {{ $postDate := .Date.Format "Monday, 2 January 2006" }}
+    {{ if ne $postDate $currentDate }}
+      {{ $currentDate = $postDate }}
+      <div class="date-heading">{{ $postDate }}</div>
+    {{ end }}
+
+    {{ if eq .Section "posts" }}
+      <div class="post">
+        <h2 class="post-title">
+          {{ if .Params.link }}
+            <a href="{{ .Params.link }}">{{ .Title }}</a>
+          {{ else }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+          <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+        </h2>
+        <div class="post-body">
+          {{ .Content }}
+        </div>
+      </div>
+
+    {{ else if eq .Section "notes" }}
+      <div class="post note">
+        <div class="post-body">
+          {{ .Content }}
+          <span class="note-timestamp"><a href="{{ .Permalink }}">{{ .Date.Format "3:04 PM" }}</a></span>
+        </div>
+      </div>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,91 @@
+{{ define "main" }}
+
+{{/* Merge all content types and sort by date */}}
+{{ $all := slice }}
+{{ range where .Site.RegularPages "Section" "posts" }}
+  {{ $all = $all | append . }}
+{{ end }}
+{{ range where .Site.RegularPages "Section" "photos" }}
+  {{ $all = $all | append . }}
+{{ end }}
+{{ range where .Site.RegularPages "Section" "notes" }}
+  {{ $all = $all | append . }}
+{{ end }}
+
+{{ $sorted := sort $all "Date" "desc" }}
+{{ $paginator := .Paginate $sorted }}
+
+{{ $currentDate := "" }}
+{{ range $paginator.Pages }}
+  {{ $postDate := .Date.Format "Monday, 2 January 2006" }}
+  {{ if ne $postDate $currentDate }}
+    {{ $currentDate = $postDate }}
+    <div class="date-heading">{{ $postDate }}</div>
+  {{ end }}
+
+  {{ if eq .Section "posts" }}
+    {{/* ── LINKED-LIST POST ── */}}
+    <div class="post">
+      <h2 class="post-title">
+        {{ if .Params.link }}
+          <a href="{{ .Params.link }}">{{ .Title }}</a>
+        {{ else }}
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ end }}
+        <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+      </h2>
+      <div class="post-body">
+        {{ .Summary }}
+        {{ if .Truncated }}
+          <p><a href="{{ .Permalink }}">Read more →</a></p>
+        {{ end }}
+        {{ partial "tags.html" . }}
+      </div>
+    </div>
+
+  {{ else if eq .Section "photos" }}
+    {{/* ── PHOTO POST ── */}}
+    <div class="post">
+      <h2 class="post-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+      </h2>
+      <div class="post-body">
+        <a href="{{ .Permalink }}">
+          {{ with .Params.image }}
+            <img class="post-photo" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+          {{ end }}
+        </a>
+        {{ partial "tags.html" . }}
+      </div>
+    </div>
+
+  {{ else if eq .Section "notes" }}
+    {{/* ── SHORT NOTE ── */}}
+    <div class="post note">
+      <div class="post-body">
+        {{ .Content }}
+        <span class="note-timestamp"><a href="{{ .Permalink }}">{{ .Date.Format "3:04 PM" }}</a></span>
+        {{ partial "tags.html" . }}
+      </div>
+    </div>
+
+  {{ end }}
+{{ end }}
+
+{{/* ── PAGINATION ── */}}
+{{ if or $paginator.HasPrev $paginator.HasNext }}
+<div class="pagination">
+  {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">← Newer</a>
+  {{ end }}
+
+  <span>Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+
+  {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">Older →</a>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ end }}

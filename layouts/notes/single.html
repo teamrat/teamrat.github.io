@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article class="single-post">
+  <div class="date-heading">{{ .Date.Format "Monday, 2 January 2006" }}</div>
+
+  <div class="post-body">
+    {{ .Content }}
+    {{ partial "tags.html" . }}
+  </div>
+</article>
+{{ end }}

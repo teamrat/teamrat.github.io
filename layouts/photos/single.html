@@ -1,0 +1,85 @@
+{{ define "main" }}
+<article class="single-post">
+  <div class="date-heading">{{ .Date.Format "Monday, 2 January 2006" }}</div>
+
+  <h1 class="post-title">{{ .Title }}</h1>
+
+  {{ with .Params.image }}
+    {{ range $.OutputFormats }}
+      {{ if eq .Name "viewer" }}
+        <a href="{{ .Permalink }}" target="_blank" rel="noopener" title="View full size">
+          <img class="post-photo" src="{{ $.Params.image }}" alt="{{ $.Title }}" loading="lazy" style="cursor: pointer;">
+        </a>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <div class="post-body">
+    {{ .Content }}
+
+    {{/* ── EXIF DATA ── */}}
+    {{ if .Params.exif }}
+    <div class="photo-exif">
+      <div class="exif-grid">
+        {{ with .Params.exif.camera }}
+        <div class="exif-item">
+          <i class="fa-solid fa-camera"></i>
+          <span class="exif-value">{{ . }}</span>
+        </div>
+        {{ end }}
+
+        {{ with .Params.exif.focal }}
+        <div class="exif-item">
+          <i class="fa-solid fa-right-left"></i>
+          <span class="exif-value">{{ . }}</span>
+        </div>
+        {{ end }}
+
+        {{ with .Params.exif.aperture }}
+        <div class="exif-item">
+          <i class="fa-solid fa-circle-dot"></i>
+          <span class="exif-value">{{ . }}</span>
+        </div>
+        {{ end }}
+
+        {{ with .Params.exif.shutter }}
+        <div class="exif-item">
+          <i class="fa-solid fa-stopwatch"></i>
+          <span class="exif-value">{{ . }}</span>
+        </div>
+        {{ end }}
+
+        {{ with .Params.exif.iso }}
+        <div class="exif-item">
+          <i class="fa-solid fa-square"></i>
+          <span class="exif-value">{{ . }}</span>
+        </div>
+        {{ end }}
+
+        {{ with .Params.exif.location }}
+        <div class="exif-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span class="exif-value">
+            {{ if $.Params.exif.location_link }}
+              <a href="{{ $.Params.exif.location_link }}" target="_blank" rel="noopener">{{ . }}</a>
+            {{ else }}
+              {{ . }}
+            {{ end }}
+          </span>
+        </div>
+        {{ end }}
+
+        {{ with .Params.exif.date }}
+        <div class="exif-item">
+          <i class="fa-solid fa-calendar"></i>
+          <span class="exif-value">{{ . }}</span>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ partial "tags.html" . }}
+  </div>
+</article>
+{{ end }}
