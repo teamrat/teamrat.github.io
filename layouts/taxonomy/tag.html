@@ -68,7 +68,10 @@
           <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
         </h2>
         <div class="post-body">
-          {{ .Content }}
+          {{ .Summary }}
+          {{ if .Truncated }}
+            <p><a href="{{ .Permalink }}">Read more →</a></p>
+          {{ end }}
         </div>
       </div>
 

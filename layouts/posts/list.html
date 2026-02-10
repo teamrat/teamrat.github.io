@@ -1,0 +1,52 @@
+{{ define "main" }}
+
+<h1 class="section-title">{{ .Title }}</h1>
+
+{{/* ── TAG FILTERS ── */}}
+<div class="photo-filters">
+  <a href="/posts/" class="{{ if not .Params.tag }}active{{ end }}">All Posts</a>
+  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    {{ $tagSlug := $name }}
+    {{ $tagHasPosts := false }}
+    {{ range $taxonomy.Pages }}
+      {{ if eq .Section "posts" }}
+        {{ $tagHasPosts = true }}
+      {{ end }}
+    {{ end }}
+    {{ if $tagHasPosts }}
+      <a href="/tags/{{ $tagSlug | urlize }}/">{{ $tagSlug | humanize | title }}</a>
+    {{ end }}
+  {{ end }}
+</div>
+
+{{/* ── POSTS LIST ── */}}
+{{ $currentDate := "" }}
+{{ range .Pages.ByDate.Reverse }}
+  {{ $postDate := .Date.Format "Monday, 2 January 2006" }}
+  {{ if ne $postDate $currentDate }}
+    {{ $currentDate = $postDate }}
+    <div class="date-heading">{{ $postDate }}</div>
+  {{ end }}
+
+  <div class="post">
+    <h2 class="post-title">
+      {{ if .Params.link }}
+        <a href="{{ .Params.link }}">{{ .Title }}</a>
+      {{ else }}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ end }}
+      <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+    </h2>
+    <div class="post-body">
+      {{ .Summary }}
+      {{ if .Truncated }}
+        <p><a href="{{ .Permalink }}">Read more →</a></p>
+      {{ end }}
+      {{ partial "tags.html" . }}
+    </div>
+  </div>
+{{ end }}
+
+{{ template "_internal/pagination.html" . }}
+
+{{ end }}

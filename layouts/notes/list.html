@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+<h1 class="section-title">{{ .Title }}</h1>
+
+{{/* ── TAG FILTERS ── */}}
+<div class="photo-filters">
+  <a href="/notes/" class="{{ if not .Params.tag }}active{{ end }}">All Notes</a>
+  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    {{ $tagSlug := $name }}
+    {{ $tagHasNotes := false }}
+    {{ range $taxonomy.Pages }}
+      {{ if eq .Section "notes" }}
+        {{ $tagHasNotes = true }}
+      {{ end }}
+    {{ end }}
+    {{ if $tagHasNotes }}
+      <a href="/tags/{{ $tagSlug | urlize }}/">{{ $tagSlug | humanize | title }}</a>
+    {{ end }}
+  {{ end }}
+</div>
+
+{{/* ── NOTES LIST ── */}}
+{{ $currentDate := "" }}
+{{ range .Pages.ByDate.Reverse }}
+  {{ $postDate := .Date.Format "Monday, 2 January 2006" }}
+  {{ if ne $postDate $currentDate }}
+    {{ $currentDate = $postDate }}
+    <div class="date-heading">{{ $postDate }}</div>
+  {{ end }}
+
+  <div class="post note">
+    <div class="post-body">
+      {{ .Content }}
+      <span class="note-timestamp"><a href="{{ .Permalink }}">{{ .Date.Format "3:04 PM" }}</a></span>
+      {{ partial "tags.html" . }}
+    </div>
+  </div>
+{{ end }}
+
+{{ template "_internal/pagination.html" . }}
+
+{{ end }}
