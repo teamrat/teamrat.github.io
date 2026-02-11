@@ -1,6 +1,6 @@
 baseURL = "https://teamrat.github.io/"  # Change to https://teamrat.net/ when domain is ready
 languageCode = "en-us"
-title = "ተeamrat"
+title = "ተeamraት"
 enableRobotsTXT = true
 enableEmoji = false
 
@@ -9,9 +9,9 @@ enableEmoji = false
 
 [params]
   subtitle = "Notes, photography, and observations"
-  author = "Teamrat Ghezzehei"
-  description = "Personal site of Teamrat Ghezzehei — soil physicist, photographer, observer of things."
-  email = "teamrat@ucmerced.edu"
+  author = "teamrat"
+  description = "Personal site of teamrat photographer, observer of things."
+  email = ""
   github = "https://github.com/teamrat"
 
 [taxonomies]
