@@ -31,7 +31,7 @@
   <div class="post note">
     <div class="post-body">
       {{ .Content }}
-      <span class="note-timestamp"><a href="{{ .Permalink }}">{{ .Date.Format "3:04 PM" }}</a></span>
+      <span class="note-timestamp"><a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a> {{ .Date.Format "3:04 PM" }}</span>
       {{ partial "tags.html" . }}
     </div>
   </div>

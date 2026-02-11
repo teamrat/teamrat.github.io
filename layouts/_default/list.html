@@ -14,7 +14,7 @@
     <div class="post">
       <h2 class="post-title">
         <a href="{{ .Permalink }}">{{ .Title }}</a>
-        <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+        <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a>
       </h2>
       <div class="post-body">
         {{ with .Params.image }}
@@ -29,7 +29,7 @@
     <div class="post note">
       <div class="post-body">
         {{ .Content }}
-        <span class="note-timestamp"><a href="{{ .Permalink }}">{{ .Date.Format "3:04 PM" }}</a></span>
+        <span class="note-timestamp"><a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a> {{ .Date.Format "3:04 PM" }}</span>
         {{ partial "tags.html" . }}
       </div>
     </div>
@@ -42,7 +42,7 @@
         {{ else }}
           <a href="{{ .Permalink }}">{{ .Title }}</a>
         {{ end }}
-        <a href="{{ .Permalink }}" class="star" title="Permalink">★</a>
+        <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a>
       </h2>
       <div class="post-body">
         {{ .Summary }}
