@@ -19,9 +19,38 @@
   {{ end }}
 </div>
 
-{{/* ── POSTS LIST ── */}}
+{{/* ── PINNED POSTS ── */}}
+{{ $pinnedPosts := where .Pages "Params.pinned" true }}
+{{ $unpinnedPosts := where .Pages "Params.pinned" "!=" true }}
+
+{{ range $pinnedPosts }}
+  <div class="post pinned-post">
+    <h2 class="post-title">
+      <i class="fa-solid fa-thumbtack pin-icon"></i>
+      {{ if .Params.link }}
+        <a href="{{ .Params.link }}">{{ .Title }}</a>
+      {{ else }}
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ end }}
+      <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a>
+    </h2>
+    <div class="post-body">
+      {{ .Summary }}
+      {{ if .Truncated }}
+        <p><a href="{{ .Permalink }}">Read more →</a></p>
+      {{ end }}
+      {{ partial "tags.html" . }}
+    </div>
+  </div>
+{{ end }}
+
+{{ if gt (len $pinnedPosts) 0 }}
+  <div class="pinned-separator"></div>
+{{ end }}
+
+{{/* ── REGULAR POSTS ── */}}
 {{ $currentDate := "" }}
-{{ range .Pages.ByDate.Reverse }}
+{{ range $unpinnedPosts.ByDate.Reverse }}
   {{ $postDate := .Date.Format "Monday, 2 January 2006" }}
   {{ if ne $postDate $currentDate }}
     {{ $currentDate = $postDate }}

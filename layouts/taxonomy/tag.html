@@ -78,8 +78,8 @@
     {{ else if eq .Section "notes" }}
       <div class="post note">
         <div class="post-body">
+          <p class="note-title"><strong>{{ .Title }}</strong> <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a></p>
           {{ .Content }}
-          <span class="note-timestamp"><a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a> {{ .Date.Format "3:04 PM" }}</span>
         </div>
       </div>
     {{ end }}

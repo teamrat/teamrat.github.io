@@ -2,13 +2,13 @@ baseURL = "https://teamrat.github.io/"  # Change to https://teamrat.net/ when do
 languageCode = "en-us"
 title = "ተeamraት"
 enableRobotsTXT = true
-enableEmoji = false
+enableEmoji = true
 
 [pagination]
   pagerSize = 20
 
 [params]
-  subtitle = "Notes, photography, and observations"
+  subtitle = "Notes, photographs, & observations"
   author = "teamrat"
   description = "Personal site of teamrat photographer, observer of things."
   email = ""

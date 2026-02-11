@@ -19,9 +19,27 @@
   {{ end }}
 </div>
 
-{{/* ── NOTES LIST ── */}}
+{{/* ── PINNED NOTES ── */}}
+{{ $pinnedNotes := where .Pages "Params.pinned" true }}
+{{ $unpinnedNotes := where .Pages "Params.pinned" "!=" true }}
+
+{{ range $pinnedNotes }}
+  <div class="post note pinned-post">
+    <div class="post-body">
+      <p class="note-title"><i class="fa-solid fa-thumbtack pin-icon"></i><strong>{{ .Title }}</strong> <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a></p>
+      {{ .Content }}
+      {{ partial "tags.html" . }}
+    </div>
+  </div>
+{{ end }}
+
+{{ if gt (len $pinnedNotes) 0 }}
+  <div class="pinned-separator"></div>
+{{ end }}
+
+{{/* ── REGULAR NOTES ── */}}
 {{ $currentDate := "" }}
-{{ range .Pages.ByDate.Reverse }}
+{{ range $unpinnedNotes.ByDate.Reverse }}
   {{ $postDate := .Date.Format "Monday, 2 January 2006" }}
   {{ if ne $postDate $currentDate }}
     {{ $currentDate = $postDate }}
@@ -30,8 +48,8 @@
 
   <div class="post note">
     <div class="post-body">
+      <p class="note-title"><strong>{{ .Title }}</strong> <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a></p>
       {{ .Content }}
-      <span class="note-timestamp"><a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a> {{ .Date.Format "3:04 PM" }}</span>
       {{ partial "tags.html" . }}
     </div>
   </div>

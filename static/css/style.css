@@ -194,6 +194,20 @@ main {
     color: var(--accent-hover);
 }
 
+/* ── PINNED POSTS ───────────────────── */
+
+.pin-icon {
+    color: var(--accent);
+    font-size: 0.9em;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.pinned-separator {
+    margin: 48px 0;
+    border-bottom: 1px solid var(--border);
+}
+
 /* ── POST BODY ──────────────────────── */
 
 .post-body {
