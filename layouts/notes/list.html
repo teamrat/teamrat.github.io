@@ -26,7 +26,7 @@
 {{ range $pinnedNotes }}
   <div class="post note pinned-post">
     <div class="post-body">
-      <p class="note-title"><i class="fa-solid fa-thumbtack pin-icon"></i><strong>{{ .Title }}</strong> <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a></p>
+      <p class="note-title"><i class="fa-solid fa-thumbtack pin-icon"></i><strong>{{ .Title }}</strong> <span class="note-date">{{ .Date.Format "2 Jan 2006" }}</span> <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a></p>
       {{ .Content }}
       {{ partial "tags.html" . }}
     </div>
@@ -48,7 +48,7 @@
 
   <div class="post note">
     <div class="post-body">
-      <p class="note-title"><strong>{{ .Title }}</strong> <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a></p>
+      <p class="note-title"><strong>{{ .Title }}</strong> <span class="note-date">{{ .Date.Format "2 Jan 2006" }}</span> <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a></p>
       {{ .Content }}
       {{ partial "tags.html" . }}
     </div>

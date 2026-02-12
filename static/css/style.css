@@ -335,6 +335,16 @@ main {
     color: var(--text-muted);
 }
 
+.note-date {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
 /* ── PHOTO POST ─────────────────────── */
 
 .post-photo {
@@ -455,6 +465,30 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.footer-left a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-left a:hover {
+    color: var(--link-hover);
+}
+
+.footer-left .separator {
+    color: var(--text-dim);
+    opacity: 0.5;
 }
 
 .copyright {

@@ -8,7 +8,7 @@ enableEmoji = true
   pagerSize = 20
 
 [params]
-  subtitle = "Notes, photographs, & observations"
+  subtitle = "On seeing & remembering"
   author = "teamrat"
   description = "Personal site of teamrat photographer, observer of things."
   email = ""
@@ -59,7 +59,3 @@ enableEmoji = true
     name = "About"
     url = "/about/"
     weight = 5
-  [[menu.main]]
-    name = "Colophon"
-    url = "/colophon/"
-    weight = 6
