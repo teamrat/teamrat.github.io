@@ -8,4 +8,6 @@ Body text is set in [Inter](https://fonts.google.com/specimen/Inter), a modern s
 
 Photographs are my own unless otherwise noted. All content on this site represents my personal views and opinions only, and does not reflect the views of my employer or any other organization.
 
+Some posts were originally published elsewhere and appear here with their original dates.
+
 The source for this site is on [GitHub](https://github.com/teamrat/teamrat.github.io).
