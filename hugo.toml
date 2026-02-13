@@ -1,4 +1,4 @@
-baseURL = "https://teamrat.github.io/"  # Change to https://teamrat.net/ when domain is ready
+baseURL = "https://teamrat.me/"
 languageCode = "en-us"
 title = "ተeamraት"
 enableRobotsTXT = true
@@ -10,7 +10,7 @@ enableEmoji = true
 [params]
   subtitle = "On seeing & remembering"
   author = "teamrat"
-  description = "Personal site of teamrat photographer, observer of things."
+  description = "On seeing & remembering"
   email = ""
   github = "https://github.com/teamrat"
 
