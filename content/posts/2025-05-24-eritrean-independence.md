@@ -35,4 +35,4 @@ I owe an apology to journalist Seyoum Tsehaye, who captured our independence wit
 
 Your sacrifice deserved better than my silence. This breaking of that silence, however late, is for you.
 
-[^1]: This post is back dated to its original publication in an anonymous blog. It took me another two years to attach my name to it.
+[^1]: This post is back dated to its original publication in an anonymous blog. It took me another year to attach my name to it.
