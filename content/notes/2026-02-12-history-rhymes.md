@@ -1,5 +1,5 @@
 ---
-title: "Historical Rhyme"
+title: "History Rhymes"
 date: 2026-02-12T08:20:00-08:00
 tags: ["climate","politics"]
 pinned: false
