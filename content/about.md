@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-I am Teamrat. It means miracle in my mother tongue.  [It has a story](/posts/2022-12-08-my-name/) bigger than me.
+I am ተeamraት. It means miracle in my mother tongue.  [It has a story](/posts/2022-12-08-my-name/) bigger than me.
 
 I am afraid of labels. I find they inevitably constrain what you can be and do. But there are some unavoidable ones. I prefer to describe myself mostly as my leanings.
 

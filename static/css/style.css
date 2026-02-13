@@ -271,6 +271,18 @@ main {
     margin-bottom: 20px;
 }
 
+.post-body hr {
+    border: none;
+    text-align: center;
+    margin: 2em 0;
+}
+
+.post-body hr::after {
+    content: "· · ·";
+    color: var(--text-dim);
+    letter-spacing: 0.5em;
+}
+
 .post-body h2 {
     font-size: 1.15rem;
     font-weight: 700;
