@@ -14,5 +14,3 @@ Photography is one of few activities that quiets the conversation. Not the actua
 This collection of notes, photos, and deeper observations is mostly written for me to organize my thoughts. I occasionally share a post with close friends.
 
 If you stumble here, welcome.
-
-ተeamraት
