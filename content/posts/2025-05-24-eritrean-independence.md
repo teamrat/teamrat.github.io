@@ -2,6 +2,7 @@
 title: "Independence Day"
 date: 2025-05-24
 tags: ["Eritrea", "politics"]
+draft: true
 ---
 
 For most Eritreans of my generation, Independence Day[^1] is filled with vivid memories. I was a freshman in Addis Ababa, so my recollection of what transpired in Asmara comes from stories told by friends and family, and from videos and photos of liberation I watched countless times. As I pause to reflect today, I find myself thinking about one of the cameramen whose literal viewpoint of that historic day is burned into collective memory.
