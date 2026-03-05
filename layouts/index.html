@@ -33,6 +33,7 @@
           <a href="{{ .Permalink }}">{{ .Title }}</a>
         {{ end }}
         <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a>
+        <span style="font-weight: normal; font-size: 0.75rem; color: var(--text-dim); margin-left: 8px;">{{ .ReadingTime }} min</span>
       </h2>
       <div class="post-body">
         {{ .Summary }}
