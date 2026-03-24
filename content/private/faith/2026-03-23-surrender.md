@@ -27,7 +27,7 @@ It drove me back to another teaching I thought I understood:
 > Truly I tell you, unless you change and become like little children, you will never enter the kingdom of heaven. Therefore, whoever takes the lowly position of this child is the greatest in the kingdom of heaven.
 > — Matthew 18:3-4 (NIV)
 
-I had always read this as a call to innocence or simplicity — to quiet the analytical mind. I now understand it differently. The faith of a child is not naive. It is the faith of someone who has no means of providing for or protecting themselves. It comes from a place of genuine vulnerability and complete dependence. That is the posture. Not chosen innocence. Honest powerlessness.
+I had always read this as a call to innocence or simplicity — to quiet the analytical mind. I now understand it differently. The faith of a child is not naive. It is the faith of someone who has no means of providing for or protecting themselves. It comes from a place of genuine vulnerability and complete dependence. That is the posture. Not chosen innocence. **Honest powerlessness**.
 
 I have lived a life of doing the right things and, without fully realizing it, quietly believed that my good outcomes — and avoided bad ones — were partly a result of my own steering. I accepted grace for the good fortune but took private credit for staying out of trouble. It was a facade of control I had built without knowing I was building it.
 
