@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article class="single-post">
+  <nav class="breadcrumb" style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-dim);">
+    <a href="/private/">Private</a> / <a href="/private/{{ .Parent.File.ContentBaseName }}/">{{ .Parent.Title }}</a>
+  </nav>
+
+  <div class="date-heading">
+    {{ .Date.Format "Monday, 2 January 2006" }}
+    <span style="color: var(--text-dim); margin-left: 12px;">· {{ .ReadingTime }} min read</span>
+  </div>
+
+  <h1 class="post-title">
+    {{ if .Params.link }}
+      <a href="{{ .Params.link }}">{{ .Title }}</a>
+      <a href="{{ .Permalink }}" class="star" title="Permalink"><i class="fa-solid fa-link"></i></a>
+    {{ else }}
+      {{ .Title }}
+    {{ end }}
+  </h1>
+
+  <div class="post-body">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}
