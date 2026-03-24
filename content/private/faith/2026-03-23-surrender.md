@@ -1,7 +1,7 @@
 ---
 title: "Surrender"
 date: 2026-03-23T00:00:00-08:00
-draft: true
+draft: false
 outputs: ["HTML"]
 sitemap:
   disable: true
