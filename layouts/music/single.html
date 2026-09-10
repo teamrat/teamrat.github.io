@@ -1,0 +1,35 @@
+{{ define "main" }}
+<article class="single-post record">
+
+  <nav class="breadcrumb"><a href="/music/">Music</a></nav>
+
+  {{ with .Params.cover }}
+    <img class="record-cover" src="{{ . }}" alt="{{ $.Title }} cover" loading="lazy">
+  {{ else }}
+    <div class="record-cover record-cover-empty" aria-hidden="true">
+      <span>{{ substr (default .Title .Params.artist) 0 1 }}</span>
+    </div>
+  {{ end }}
+
+  <h1 class="post-title">{{ .Title }}</h1>
+  {{ with .Params.artist }}<div class="record-artist">{{ . }}</div>{{ end }}
+
+  {{ if .Params.status }}<span class="record-status status-{{ .Params.status }}">{{ .Params.status }}</span>{{ end }}
+  {{ if .Params.incomplete }}<span class="record-status status-incomplete">incomplete</span>{{ end }}
+
+  <dl class="record-facts">
+    {{ with .Params.label }}<dt>Label</dt><dd>{{ . }}{{ with $.Params.cat }} · {{ . }}{{ end }}</dd>{{ end }}
+    {{ with .Params.released }}<dt>Released</dt><dd>{{ . }}</dd>{{ end }}
+    {{ with .Params.format }}<dt>Format</dt><dd>{{ . }}</dd>{{ end }}
+    {{ with .Params.press }}<dt>Pressing</dt><dd>{{ . }}{{ with $.Params.press_confidence }} <span class="press-conf">— {{ . }}</span>{{ end }}</dd>{{ end }}
+    {{ with .Params.genre }}<dt>Genre</dt><dd>{{ . }}</dd>{{ end }}
+    {{ with .Params.acquired }}<dt>Acquired</dt><dd>{{ . }}</dd>{{ end }}
+    {{ with .Params.price }}<dt>Price</dt><dd>{{ . }}</dd>{{ end }}
+  </dl>
+
+  <div class="post-body">
+    {{ .Content }}
+    {{ partial "tags.html" . }}
+  </div>
+</article>
+{{ end }}

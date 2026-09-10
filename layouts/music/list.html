@@ -1,0 +1,149 @@
+{{ define "main" }}
+{{ $recs := sort .Pages "Params.artist" }}
+
+<div class="music-page">
+
+<h1 class="section-title">{{ .Title }}</h1>
+
+{{ with .Content }}<div class="music-tagline">{{ . }}</div>{{ end }}
+
+<div class="music-search">
+  <input type="search" id="mq" placeholder="Search artist, title, label, catalogue number, notes…" autocomplete="off">
+</div>
+
+<div class="music-bar">
+  <select id="mgenre"><option value="">All genres</option></select>
+  <select id="mpress"><option value="">All pressings</option></select>
+  <select id="mdecade"><option value="">All decades</option></select>
+  <select id="msort">
+    <option value="artist">Sort: artist</option>
+    <option value="title">Sort: title</option>
+    <option value="released">Sort: year</option>
+    <option value="label">Sort: label</option>
+  </select>
+  <button id="mview" class="music-toggle" data-view="grid">Table view</button>
+</div>
+
+<p class="music-count" id="mcount"></p>
+
+<div class="music-grid" id="mgrid">
+{{ range $recs }}
+  {{ $artist := default "" .Params.artist }}
+  {{ $note := .Plain | plainify }}
+  <a class="music-card" href="{{ .Permalink }}"
+     data-artist="{{ $artist }}" data-title="{{ .Title }}"
+     data-label="{{ default "" .Params.label }}" data-cat="{{ default "" .Params.cat }}"
+     data-released="{{ default "" .Params.released }}" data-format="{{ default "" .Params.format }}"
+     data-press="{{ default "" .Params.press }}" data-genre="{{ default "" .Params.genre }}"
+     data-status="{{ default "" .Params.status }}"
+     data-search="{{ lower (printf "%s %s %s %s %s %s" $artist .Title (default "" .Params.label) (default "" .Params.cat) (default "" .Params.press) $note) }}">
+    {{ with .Params.cover }}
+      <img class="music-cover" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+    {{ else }}
+      <span class="music-cover music-cover-empty" aria-hidden="true">{{ substr (default .Title $artist) 0 1 }}</span>
+    {{ end }}
+    <span class="music-card-artist">{{ $artist }}</span>
+    <span class="music-card-title">{{ .Title }}</span>
+    <span class="music-card-meta">{{ with .Params.released }}{{ . }}{{ end }}{{ with .Params.press }} · {{ . }}{{ end }}</span>
+  </a>
+{{ end }}
+</div>
+
+<div class="music-wide">
+<table class="music-table" id="mtable" hidden>
+  <thead><tr>
+    <th>Artist</th><th>Title</th><th class="mt-label">Label / cat.</th>
+    <th>Year</th><th class="mt-format">Format</th><th>Pressing</th>
+  </tr></thead>
+  <tbody>
+  {{ range $recs }}
+    {{ $artist := default "" .Params.artist }}
+    <tr data-href="{{ .Permalink }}"
+        data-search="{{ lower (printf "%s %s %s %s" $artist .Title (default "" .Params.label) (default "" .Params.cat)) }}"
+        data-artist="{{ $artist }}" data-title="{{ .Title }}"
+        data-label="{{ default "" .Params.label }}" data-released="{{ default "" .Params.released }}"
+        data-press="{{ default "" .Params.press }}" data-genre="{{ default "" .Params.genre }}"
+        data-status="{{ default "" .Params.status }}">
+      <td class="mt-artist">{{ $artist }}</td>
+      <td><a href="{{ .Permalink }}">{{ .Title }}</a>{{ with .Params.status }} <span class="record-status status-{{ . }}">{{ . }}</span>{{ end }}</td>
+      <td class="mt-label">{{ default "—" .Params.label }}{{ with .Params.cat }} {{ . }}{{ end }}</td>
+      <td>{{ default "—" .Params.released }}</td>
+      <td class="mt-format">{{ default "—" .Params.format }}</td>
+      <td>{{ default "—" .Params.press }}</td>
+    </tr>
+  {{ end }}
+  </tbody>
+</table>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var grid=document.getElementById('mgrid'), table=document.getElementById('mtable'),
+      q=document.getElementById('mq'), count=document.getElementById('mcount'),
+      btn=document.getElementById('mview');
+  var cards=[].slice.call(grid.children),
+      rows=[].slice.call(table.tBodies[0].rows);
+
+  function decade(y){ y=parseInt(y,10); return y? (Math.floor(y/10)*10)+'s' : ''; }
+
+  function fill(sel, key){
+    var vals={};
+    cards.forEach(function(c){ var v=key==='decade'?decade(c.dataset.released):c.dataset[key];
+      if(v) vals[v]=1; });
+    Object.keys(vals).sort().forEach(function(v){
+      var o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o);
+    });
+  }
+  var fg=document.getElementById('mgenre'), fp=document.getElementById('mpress'), fd=document.getElementById('mdecade');
+  fill(fg,'genre'); fill(fp,'press'); fill(fd,'decade');
+
+  function match(el){
+    var s=q.value.trim().toLowerCase();
+    if(s && (el.dataset.search||'').indexOf(s)<0) return false;
+    if(fg.value && el.dataset.genre!==fg.value) return false;
+    if(fp.value && el.dataset.press!==fp.value) return false;
+    if(fd.value && decade(el.dataset.released)!==fd.value) return false;
+    return true;
+  }
+
+  function key(el){
+    var k=document.getElementById('msort').value;
+    if(k==='released') return parseInt(el.dataset.released,10)||9999;
+    return (el.dataset[k]||'~').toLowerCase();
+  }
+
+  function render(){
+    var n=0;
+    [[cards,grid],[rows,table.tBodies[0]]].forEach(function(pair){
+      var items=pair[0], parent=pair[1];
+      items.slice().sort(function(a,b){
+        var x=key(a), y=key(b);
+        return x<y?-1:x>y?1:(a.dataset.artist||'').localeCompare(b.dataset.artist||'');
+      }).forEach(function(el){ parent.appendChild(el); });
+      items.forEach(function(el){ el.hidden=!match(el); });
+    });
+    cards.forEach(function(c){ if(!c.hidden) n++; });
+    count.textContent = n + ' of ' + cards.length;
+  }
+
+  q.addEventListener('input',render);
+  [fg,fp,fd,document.getElementById('msort')].forEach(function(s){ s.addEventListener('change',render); });
+
+  btn.addEventListener('click',function(){
+    var toTable = btn.dataset.view==='grid';
+    btn.dataset.view = toTable?'table':'grid';
+    btn.textContent = toTable?'Grid view':'Table view';
+    grid.hidden = toTable; table.hidden = !toTable;
+  });
+
+  table.tBodies[0].addEventListener('click',function(e){
+    if(e.target.tagName==='A') return;
+    var tr=e.target.closest('tr'); if(tr&&tr.dataset.href) location.href=tr.dataset.href;
+  });
+
+  render();
+})();
+</script>
+{{ end }}

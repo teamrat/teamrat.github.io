@@ -675,3 +675,212 @@ footer {
         padding: 0 20px;
     }
 }
+
+/* ── MUSIC / RECORD CATALOG ─────────── */
+
+/* Heading, tagline and controls keep the site measure; only the
+   albums themselves break out to the wider column. */
+.music-grid,
+.music-wide {
+    width: min(calc(100vw - 48px), 960px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.music-wide { overflow-x: auto; }
+
+.music-tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0 0 22px;
+}
+.music-tagline p { margin: 0; }
+
+.music-search { margin-bottom: 8px; }
+.music-search input[type=search] { width: 100%; }
+
+.music-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+}
+
+.music-search input[type=search],
+.music-bar select,
+.music-toggle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 7px 11px;
+}
+.music-toggle { cursor: pointer; color: var(--text-muted); }
+.music-search input[type=search]:focus,
+.music-bar select:focus { outline: none; border-color: var(--accent); }
+.music-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+.music-count {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    margin: 10px 0 18px;
+}
+
+/* grid of covers */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    gap: 26px 18px;
+}
+.music-card { text-decoration: none; display: block; }
+.music-cover {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: var(--bg-subtle);
+}
+.music-cover-empty {
+    display: grid;
+    place-items: center;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    background:
+        radial-gradient(circle at 50% 50%, var(--bg) 12%, transparent 12.5%),
+        var(--bg-subtle);
+}
+.music-card-artist {
+    display: block;
+    margin-top: 9px;
+    font-size: 0.78rem;
+    color: var(--accent);
+    line-height: 1.35;
+}
+.music-card-title {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.35;
+}
+.music-card-meta {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--text-dim);
+    margin-top: 2px;
+}
+.music-card:hover .music-card-title { color: var(--link-hover); }
+.music-card:hover .music-cover { border-color: var(--accent); }
+
+/* dense table */
+.music-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.music-table th {
+    text-align: left;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+.music-table td {
+    padding: 9px 12px 9px 0;
+    border-bottom: 1px solid var(--bg-subtle);
+    vertical-align: top;
+    color: var(--text-muted);
+}
+.music-table tr { cursor: pointer; }
+.music-table tbody tr:hover td { background: var(--bg-subtle); }
+.music-table .mt-artist { color: var(--accent); white-space: nowrap; }
+.music-table td a { color: var(--text); text-decoration: none; }
+.music-table tbody tr:hover td a { color: var(--link-hover); }
+
+/* record page */
+.record-cover {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin: 8px 0 22px;
+}
+.record-cover-empty {
+    display: grid;
+    place-items: center;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    background:
+        radial-gradient(circle at 50% 50%, var(--bg) 10%, transparent 10.5%),
+        var(--bg-subtle);
+}
+.record-artist {
+    font-size: 1rem;
+    color: var(--accent);
+    margin: -2px 0 14px;
+}
+.record-facts {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 5px 18px;
+    margin: 18px 0 26px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.86rem;
+}
+.record-facts dt {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding-top: 3px;
+}
+.record-facts dd { color: var(--text-muted); margin: 0; }
+
+.record-status {
+    display: inline-block;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    vertical-align: 2px;
+}
+.status-ordered { color: var(--accent); border-color: var(--accent); }
+
+.breadcrumb {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+}
+
+@media (max-width: 640px) {
+    .music-grid, .music-wide { width: 100%; left: auto; transform: none; }
+    .music-table .mt-label, .music-table .mt-format { display: none; }
+    .music-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+}
+
+.record-facts .press-conf { color: var(--text-dim); }
+
+/* [hidden] must beat the explicit display rules above, or filtering does nothing */
+.music-grid [hidden],
+.music-table [hidden] { display: none !important; }
