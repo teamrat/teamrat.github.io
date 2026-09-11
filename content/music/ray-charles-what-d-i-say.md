@@ -4,7 +4,7 @@ artist: "Ray Charles"
 date: 2026-09-09T00:00:00-07:00
 label: "Atlantic"
 cat: "8029"
-released: ""
+released: 1959
 format: "mono"
 press: "reissue"
 genre: "Soul"

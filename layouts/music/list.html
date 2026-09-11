@@ -37,8 +37,10 @@
      data-press="{{ default "" .Params.press }}" data-genre="{{ default "" .Params.genre }}"
      data-status="{{ default "" .Params.status }}"
      data-search="{{ lower (printf "%s %s %s %s %s %s" $artist .Title (default "" .Params.label) (default "" .Params.cat) (default "" .Params.press) $note) }}">
-    {{ with .Params.cover }}
-      <img class="music-cover" src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+    {{ $cover := resources.Get (printf "records/%s.jpg" .File.ContentBaseName) }}
+    {{ if $cover }}
+      {{ $thumb := $cover.Resize "400x jpg q82" }}
+      <img class="music-cover" src="{{ $thumb.RelPermalink }}" alt="{{ .Title }} cover" loading="lazy">
     {{ else }}
       <span class="music-cover music-cover-empty" aria-hidden="true">{{ substr (default .Title $artist) 0 1 }}</span>
     {{ end }}

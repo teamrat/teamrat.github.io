@@ -4,7 +4,7 @@ artist: "Bruce Springsteen"
 date: 2026-09-09T00:00:00-07:00
 label: ""
 cat: ""
-released: ""
+released: 1975
 format: ""
 press: "reissue"
 genre: "Rock"

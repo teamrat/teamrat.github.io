@@ -4,7 +4,7 @@ artist: "Miles Davis"
 date: 2026-09-09T00:00:00-07:00
 label: "Columbia"
 cat: "PC 8163"
-released: ""
+released: 1959
 format: ""
 press: "reissue"
 genre: "Jazz"

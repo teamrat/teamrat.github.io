@@ -4,7 +4,7 @@ artist: "Sidney Bechet"
 date: 2026-09-09T00:00:00-07:00
 label: "Columbia"
 cat: "CL 836"
-released: ""
+released: 1956
 format: ""
 press: ""
 genre: "Jazz"

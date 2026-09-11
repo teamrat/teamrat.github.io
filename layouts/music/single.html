@@ -3,8 +3,10 @@
 
   <nav class="breadcrumb"><a href="/music/">Music</a></nav>
 
-  {{ with .Params.cover }}
-    <img class="record-cover" src="{{ . }}" alt="{{ $.Title }} cover" loading="lazy">
+  {{ $cover := resources.Get (printf "records/%s.jpg" .File.ContentBaseName) }}
+  {{ if $cover }}
+    {{ $full := $cover.Resize "800x jpg q82" }}
+    <img class="record-cover" src="{{ $full.RelPermalink }}" alt="{{ .Title }} cover" loading="lazy">
   {{ else }}
     <div class="record-cover record-cover-empty" aria-hidden="true">
       <span>{{ substr (default .Title .Params.artist) 0 1 }}</span>
@@ -19,7 +21,7 @@
 
   <dl class="record-facts">
     {{ with .Params.label }}<dt>Label</dt><dd>{{ . }}{{ with $.Params.cat }} · {{ . }}{{ end }}</dd>{{ end }}
-    {{ with .Params.released }}<dt>Released</dt><dd>{{ . }}</dd>{{ end }}
+    {{ with .Params.released }}<dt>Released</dt><dd>{{ . }}{{ with $.Params.pressed }} <span class="press-conf">· {{ . }} pressing</span>{{ end }}</dd>{{ end }}
     {{ with .Params.format }}<dt>Format</dt><dd>{{ . }}</dd>{{ end }}
     {{ with .Params.press }}<dt>Pressing</dt><dd>{{ . }}{{ with $.Params.press_confidence }} <span class="press-conf">— {{ . }}</span>{{ end }}</dd>{{ end }}
     {{ with .Params.genre }}<dt>Genre</dt><dd>{{ . }}</dd>{{ end }}

@@ -4,7 +4,7 @@ artist: "Charles Mingus"
 date: 2026-09-09T00:00:00-07:00
 label: "Prestige"
 cat: ""
-released: ""
+released: 1971
 format: "3×LP"
 press: "reissue"
 genre: "Jazz"

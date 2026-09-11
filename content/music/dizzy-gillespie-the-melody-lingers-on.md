@@ -4,7 +4,7 @@ artist: "Dizzy Gillespie"
 date: 2026-09-09T00:00:00-07:00
 label: "Limelight"
 cat: "LS 86042 / LM 82042"
-released: ""
+released: 1966
 format: ""
 press: ""
 genre: "Jazz"

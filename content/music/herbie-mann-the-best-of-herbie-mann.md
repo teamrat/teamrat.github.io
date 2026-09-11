@@ -4,7 +4,7 @@ artist: "Herbie Mann"
 date: 2026-09-09T00:00:00-07:00
 label: "Atlantic Jazz Anthology"
 cat: "SD 1544"
-released: ""
+released: 1969
 format: ""
 press: "compilation"
 genre: "Jazz"

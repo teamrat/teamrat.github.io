@@ -4,7 +4,7 @@ artist: "Jon Batiste"
 date: 2026-09-09T00:00:00-07:00
 label: ""
 cat: ""
-released: ""
+released: 2023
 format: ""
 press: "original"
 genre: "Jazz"

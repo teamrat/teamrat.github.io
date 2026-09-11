@@ -4,7 +4,8 @@ artist: "Handel — Colin Davis / LSO"
 date: 2026-09-09T00:00:00-07:00
 label: "Philips"
 cat: "802 721–723 AY"
-released: 1978
+released: 1966
+pressed: 1978
 format: "3×LP, Dutch pressing"
 press: "reissue"
 genre: "Classical"

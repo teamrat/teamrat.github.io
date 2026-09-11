@@ -14,6 +14,7 @@ acquired: ""
 price: "$100"
 ---
 
+This album was the soundtrack of my childhood. It was on frequent rotation in the evenings. My ealiest association is dinner of bistecca, with fried eggs and chards
 Pristine original pressing, $100. Father's record, played at home in Asmara. Searched for years on the memory of its colours and one word in the title; found it after hearing it on NPR. Being held back until the setup is dialled in — play something expendable first.
 
 Simple I / II lacquers, documented as an original US pressing rather than inferred from catalogue number and label. Contemporary Cash Box listings confirm LST 8055 in 1968, released 25 May. This one goes in the confirmed-original column, not original-era.

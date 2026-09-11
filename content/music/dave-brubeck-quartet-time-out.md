@@ -4,7 +4,8 @@ artist: "Dave Brubeck Quartet"
 date: 2026-09-09T00:00:00-07:00
 label: "Jazz Wax Records"
 cat: "JWR 4525 · UPC 8436028696765"
-released: 2010
+released: 1959
+pressed: 2010
 format: "180g stereo"
 press: "reissue"
 genre: "Jazz"

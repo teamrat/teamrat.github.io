@@ -741,23 +741,11 @@ footer {
 .music-cover {
     display: block;
     width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
     border: 1px solid var(--border);
     border-radius: 2px;
     background: var(--bg-subtle);
 }
-.music-cover-empty {
-    display: grid;
-    place-items: center;
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--text-dim);
-    background:
-        radial-gradient(circle at 50% 50%, var(--bg) 12%, transparent 12.5%),
-        var(--bg-subtle);
-}
+.music-cover-empty { font-size: 2.4rem; }
 .music-card-artist {
     display: block;
     margin-top: 9px;
@@ -811,23 +799,11 @@ footer {
     display: block;
     width: 100%;
     max-width: 320px;
-    aspect-ratio: 1;
-    object-fit: cover;
     border: 1px solid var(--border);
     border-radius: 2px;
     margin: 8px 0 22px;
 }
-.record-cover-empty {
-    display: grid;
-    place-items: center;
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--text-dim);
-    background:
-        radial-gradient(circle at 50% 50%, var(--bg) 10%, transparent 10.5%),
-        var(--bg-subtle);
-}
+.record-cover-empty { font-size: 4rem; }
 .record-artist {
     font-size: 1rem;
     color: var(--accent);
@@ -879,8 +855,43 @@ footer {
     .music-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
 }
 
+
+/* Placeholder for a record with no cover photograph yet: the LP itself,
+   with the artist's initial printed on the label. */
+.music-cover-empty,
+.record-cover-empty {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    background:
+        /* label, with its rim */
+        radial-gradient(circle at 50% 50%,
+            #3d3327 0 30%,
+            rgba(0, 0, 0, 0.55) 30% 31.5%,
+            transparent 31.5%),
+        /* grooves */
+        repeating-radial-gradient(circle at 50% 50%,
+            rgba(255, 255, 255, 0.045) 0 1px,
+            rgba(0, 0, 0, 0) 1px 4px),
+        /* sheen */
+        linear-gradient(118deg,
+            rgba(255, 255, 255, 0.07) 0 16%,
+            rgba(255, 255, 255, 0) 42%),
+        /* vinyl */
+        radial-gradient(circle at 50% 50%, #212126 0 60%, #16161a 100%);
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.6);
+}
+
 .record-facts .press-conf { color: var(--text-dim); }
 
-/* [hidden] must beat the explicit display rules above, or filtering does nothing */
+/* [hidden] must beat the explicit display rules above, or neither the
+   filtering nor the grid/table toggle does anything visible. */
 .music-grid [hidden],
-.music-table [hidden] { display: none !important; }
+.music-table [hidden],
+.music-grid[hidden],
+.music-wide[hidden],
+.music-table[hidden] { display: none !important; }

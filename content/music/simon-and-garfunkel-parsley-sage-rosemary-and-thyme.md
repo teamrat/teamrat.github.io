@@ -4,7 +4,7 @@ artist: "Simon & Garfunkel"
 date: 2026-09-09T00:00:00-07:00
 label: "Columbia"
 cat: "CS 9363 / CL 2563"
-released: ""
+released: 1966
 format: "stereo, 2-eye 360 Sound"
 press: "reissue"
 genre: "Rock"

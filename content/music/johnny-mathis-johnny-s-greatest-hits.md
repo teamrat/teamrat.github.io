@@ -4,7 +4,8 @@ artist: "Johnny Mathis"
 date: 2026-09-09T00:00:00-07:00
 label: "Columbia"
 cat: "CS 8634"
-released: 1962
+released: 1958
+pressed: 1962
 format: "rechanneled stereo"
 press: "reissue"
 genre: "Soul"

@@ -4,7 +4,8 @@ artist: "Dire Straits"
 date: 2026-09-09T00:00:00-07:00
 label: ""
 cat: ""
-released: 2013
+released: 1985
+pressed: 2013
 format: ""
 press: "reissue"
 genre: "Rock"

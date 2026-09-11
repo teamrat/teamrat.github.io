@@ -4,7 +4,7 @@ artist: "Art Blakey's Jazz Messengers"
 date: 2026-09-09T00:00:00-07:00
 label: "Atlantic"
 cat: "1278"
-released: ""
+released: 1958
 format: "140g"
 press: "reissue"
 genre: "Jazz"

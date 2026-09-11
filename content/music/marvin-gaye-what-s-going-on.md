@@ -4,7 +4,8 @@ artist: "Marvin Gaye"
 date: 2026-09-09T00:00:00-07:00
 label: "Motown / UMe"
 cat: "B0033100-01"
-released: 2021
+released: 1971
+pressed: 2021
 format: "green vinyl"
 press: "reissue"
 genre: "Soul"

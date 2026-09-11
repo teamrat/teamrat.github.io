@@ -4,7 +4,8 @@ artist: "Art Blakey & the Jazz Messengers"
 date: 2026-09-09T00:00:00-07:00
 label: "Wax Time"
 cat: "UPC 8436542011112"
-released: 2012
+released: 1958
+pressed: 2012
 format: "180g DMM"
 press: "reissue"
 genre: "Jazz"
