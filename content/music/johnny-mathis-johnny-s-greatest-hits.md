@@ -8,9 +8,11 @@ released: 1958
 pressed: 1962
 format: "rechanneled stereo"
 press: "reissue"
-genre: "Soul"
+genre: "Pop"
 cover: ""
 acquired: ""
 ---
 
 Not true stereo — 'Electronically Rechanneled for Stereo.' The 1958 originals were mono (CL 1133); Columbia faked stereo by splitting the mono signal, delaying one channel and pushing bass one way and treble the other. This is genuinely worse than the mono it was made from: hollow centre, smeared image, damaged tonal balance. The mono CL 1133 is the record to look for, and it should be cheap.
+
+Side 1 deadwax `XSM 55982-1DJ`. `XSM 55982` is the Columbia matrix number for side 1 and `-1DJ` the lacquer suffix. No plant or first-pressing claim should be made from this matrix alone.

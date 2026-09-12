@@ -7,7 +7,7 @@ cat: "CS 8967"
 released: 1964
 format: ""
 press: ""
-genre: "Soul"
+genre: "Pop"
 cover: ""
 acquired: ""
 ---

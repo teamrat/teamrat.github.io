@@ -7,7 +7,6 @@ cat: "MS 2-663"
 released: 1967
 format: "gatefold 2×LP stereo"
 press: "original"
-press_confidence: "strongly supported"
 genre: "Soul"
 cover: ""
 acquired: ""

@@ -7,7 +7,7 @@ cat: "CS 8823"
 released: 1963
 format: ""
 press: ""
-genre: "Soul"
+genre: "Pop"
 cover: ""
 acquired: ""
 ---

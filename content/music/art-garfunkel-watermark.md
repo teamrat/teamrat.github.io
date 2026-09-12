@@ -7,8 +7,7 @@ cat: "JC 34975"
 released: 1978
 format: "stereo"
 press: "original"
-press_confidence: "original-era; not established as a first pressing"
-genre: "Rock"
+genre: "Folk"
 cover: ""
 acquired: ""
 ---

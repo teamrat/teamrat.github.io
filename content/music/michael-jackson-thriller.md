@@ -7,7 +7,7 @@ cat: "QE 38112"
 released: 1982
 format: "stereo"
 press: "original"
-genre: "Soul"
+genre: "Pop"
 cover: ""
 acquired: ""
 ---

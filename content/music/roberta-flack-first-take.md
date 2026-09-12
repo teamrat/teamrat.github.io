@@ -7,7 +7,6 @@ cat: "SD 8230"
 released: 1969
 format: "stereo"
 press: "original"
-press_confidence: "original-era US; George Piros mastering"
 genre: "Soul"
 cover: ""
 acquired: ""

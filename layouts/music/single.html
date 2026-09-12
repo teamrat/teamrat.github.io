@@ -23,7 +23,7 @@
     {{ with .Params.label }}<dt>Label</dt><dd>{{ . }}{{ with $.Params.cat }} · {{ . }}{{ end }}</dd>{{ end }}
     {{ with .Params.released }}<dt>Released</dt><dd>{{ . }}{{ with $.Params.pressed }} <span class="press-conf">· {{ . }} pressing</span>{{ end }}</dd>{{ end }}
     {{ with .Params.format }}<dt>Format</dt><dd>{{ . }}</dd>{{ end }}
-    {{ with .Params.press }}<dt>Pressing</dt><dd>{{ . }}{{ with $.Params.press_confidence }} <span class="press-conf">— {{ . }}</span>{{ end }}</dd>{{ end }}
+    {{ with .Params.press }}<dt>Pressing</dt><dd>{{ . }}</dd>{{ end }}
     {{ with .Params.genre }}<dt>Genre</dt><dd>{{ . }}</dd>{{ end }}
     {{ with .Params.acquired }}<dt>Acquired</dt><dd>{{ . }}</dd>{{ end }}
     {{ with .Params.price }}<dt>Price</dt><dd>{{ . }}</dd>{{ end }}

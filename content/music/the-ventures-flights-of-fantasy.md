@@ -7,7 +7,6 @@ cat: "LST-8055"
 released: 1968
 format: "stereo"
 press: "original"
-press_confidence: "confirmed"
 genre: "Rock"
 cover: ""
 acquired: ""

@@ -7,7 +7,7 @@ cat: "FE 36424"
 released: 1980
 format: "stereo"
 press: "original"
-genre: "Soul"
+genre: "Pop"
 cover: ""
 acquired: ""
 ---

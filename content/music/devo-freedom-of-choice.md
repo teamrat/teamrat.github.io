@@ -7,7 +7,6 @@ cat: "BSK 3435"
 released: 1980
 format: "stereo"
 press: "original"
-press_confidence: "original US, May 1980"
 genre: "Rock"
 cover: ""
 acquired: ""

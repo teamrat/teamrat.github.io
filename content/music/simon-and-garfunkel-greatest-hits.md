@@ -7,7 +7,7 @@ cat: "KC 31350"
 released: 1972
 format: "stereo"
 press: "compilation"
-genre: "Rock"
+genre: "Folk"
 cover: ""
 acquired: ""
 ---

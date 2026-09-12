@@ -7,7 +7,6 @@ cat: "KC 31605"
 released: 1972
 format: "stereo"
 press: "original"
-press_confidence: "original-era; plant not established"
 genre: "Blues"
 cover: ""
 acquired: ""
@@ -18,3 +17,5 @@ Matrices A: PAL 31605-1B S, B: PBL 31605-1B S … 4, with a symbol preceding the
 **This is the first actual blues record in the collection.** Everything that came close was blues-adjacent soul — the Atlantic Ray Charles, the Aretha, the El Mocambo side of Love You Live. Taj Mahal is the real thing: country blues, banjo and National steel alongside a band, and this record includes the solo acoustic material recorded in Hawaii.
 
 Bearing on the wish list: the blues gap that justified Muddy Waters *Folk Singer*, John Lee Hooker and The Bosses is no longer empty. Those all still stand on their merits, but not as gap-filling.
+
+Pressing plant not established.

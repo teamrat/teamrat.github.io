@@ -7,8 +7,7 @@ cat: "AL-8405"
 released: 1987
 format: "stereo"
 press: "original"
-press_confidence: "original-release-era pressing"
-genre: "Soul"
+genre: "Pop"
 acquired: ""
 ---
 

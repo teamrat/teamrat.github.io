@@ -7,7 +7,6 @@ cat: "MS-724"
 released: 1970
 format: "stereo"
 press: "original"
-press_confidence: "original-era US; plant not confirmed"
 genre: "Soul"
 acquired: ""
 ---

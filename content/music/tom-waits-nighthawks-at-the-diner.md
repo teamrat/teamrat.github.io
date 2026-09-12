@@ -7,7 +7,6 @@ cat: "7E-2008"
 released: 1975
 format: "2×LP stereo"
 press: "original"
-press_confidence: "original-era US, PRC"
 genre: "Rock"
 cover: ""
 acquired: ""

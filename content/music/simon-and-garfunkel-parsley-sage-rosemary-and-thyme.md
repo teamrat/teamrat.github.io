@@ -7,7 +7,7 @@ cat: "CS 9363 / CL 2563"
 released: 1966
 format: "stereo, 2-eye 360 Sound"
 press: "reissue"
-genre: "Rock"
+genre: "Folk"
 cover: ""
 acquired: ""
 ---

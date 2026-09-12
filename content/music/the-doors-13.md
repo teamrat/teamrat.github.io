@@ -7,7 +7,6 @@ cat: "EKS-74079 / R-123248"
 released: 1970
 format: "stereo"
 press: "club edition"
-press_confidence: "US RCA Music Service club edition, Specialty (SP) matrices"
 genre: "Rock"
 cover: ""
 acquired: ""

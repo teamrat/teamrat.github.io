@@ -7,7 +7,6 @@ cat: "7E-1117"
 released: 1977
 format: "stereo"
 press: "original"
-press_confidence: "original 1977 pressing; not an established first"
 genre: "Rock"
 cover: ""
 acquired: ""

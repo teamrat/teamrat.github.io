@@ -7,7 +7,7 @@ cat: "CPL1-0374"
 released: 1973
 format: "stereo"
 press: "original"
-genre: "Rock"
+genre: "Folk"
 cover: ""
 acquired: ""
 ---

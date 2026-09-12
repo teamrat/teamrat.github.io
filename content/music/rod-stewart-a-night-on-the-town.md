@@ -7,7 +7,6 @@ cat: "BS 2938"
 released: 1976
 format: "stereo"
 press: "original"
-press_confidence: "original-era; not established as a first pressing"
 genre: "Rock"
 cover: ""
 acquired: ""

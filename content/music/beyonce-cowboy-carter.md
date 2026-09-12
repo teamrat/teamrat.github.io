@@ -7,7 +7,7 @@ cat: "196588949319"
 released: 2024
 format: "2×LP, black vinyl, \"Beads\" edition"
 press: "original"
-genre: "Country / Pop"
+genre: "Pop"
 cover: ""
 acquired: ""
 ---
